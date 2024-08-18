@@ -1,4 +1,4 @@
-package dsalgo.testng;
+package dsalgoTests;
 
 import java.time.Duration;
 import java.util.List;
