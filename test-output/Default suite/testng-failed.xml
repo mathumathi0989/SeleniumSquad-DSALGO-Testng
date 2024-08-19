@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="dsalgo.testng.dsalgoTest">
+      <class name="dsalgoTests.dsalgoTest">
         <methods>
+          <include name="testgetStarted"/>
+          <include name="setUp"/>
+          <include name="testSignout"/>
+          <include name="testSignin"/>
           <include name="tearDown"/>
           <include name="testDSALGO"/>
-          <include name="setUp"/>
         </methods>
-      </class> <!-- dsalgo.testng.dsalgoTest -->
+      </class> <!-- dsalgoTests.dsalgoTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

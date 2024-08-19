@@ -1,11 +1,8 @@
 package dsalgoTests;
 
 import java.time.Duration;
-import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -16,7 +13,6 @@ import pageObjects.dsalgoPage;
 
 public class dsalgoTest {
 
-	
 	private WebDriver driver;
     private dsalgoPage DsalgoPage;
     private String url = "http://dsportalapp.herokuapp.com/";
@@ -30,15 +26,15 @@ public class dsalgoTest {
         DsalgoPage = new dsalgoPage(driver);
     }
 
+    
     @Test
-    public void testDSALGO() {
-    	
-    	//WebPage
+    public void testgetStarted() {
     	DsalgoPage.clickGetStarted();
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    	
-    	/*
-    	//register
+    }
+    
+   // @Test(dependsOnMethods="testgetStarted")
+    public void testRegister() {
     	DsalgoPage.clickregister();
     	DsalgoPage.enterUserName("mathu");
     	DsalgoPage.enterPassword("mathumathi");
@@ -46,25 +42,41 @@ public class dsalgoTest {
     	DsalgoPage.clickregisterButton();
     	DsalgoPage.getAlertMessage();
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    	*/
+    }
     
-    	//Signin
+    
+    @Test(dependsOnMethods="testgetStarted")
+    public void testSignin() {
     	DsalgoPage.clickSignIn();
     	DsalgoPage.enterUserName("mathu");
     	DsalgoPage.enterPasswordSignIn("mathumathi");
     	DsalgoPage.clickLoginSignInPage();
     	alertMessage = DsalgoPage.getAlertMessage();
     	Assert.assertEquals(alertMessage, "You are logged in");
-    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));	
+    	
+    }
+    
+    
+    
+    
+    
+    @Test(dependsOnMethods="testSignin")
+    public void testDSALGO() {
     	
     	//DSList - TopicsCovered 
     	DsalgoPage.dslist();
     	
-    	//Signout
+    	
+    
+    }
+   
+    
+    @Test(dependsOnMethods="testDSALGO")
+    public void testSignout() {
     	DsalgoPage.clickSignOut();
     	DsalgoPage.getAlertMessage();
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    
     }
 
     @AfterTest
@@ -73,6 +85,4 @@ public class dsalgoTest {
             driver.quit();
         }
     }
-    
-    
 }

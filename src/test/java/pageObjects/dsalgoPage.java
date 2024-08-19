@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class dsalgoPage {
 	
-	 private WebDriver driver;
+	private WebDriver driver;
 	 private WebDriverWait wait;
 	 
 	 
@@ -192,12 +192,6 @@ public class dsalgoPage {
 	 
 	 
 	
-
-	  
-	
-	 
-	 
-	  
 
 	
 }
