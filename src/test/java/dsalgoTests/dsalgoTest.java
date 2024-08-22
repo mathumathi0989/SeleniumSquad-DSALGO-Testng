@@ -1,11 +1,17 @@
 package dsalgoTests;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -18,7 +24,8 @@ public class dsalgoTest {
     private String url = "http://dsportalapp.herokuapp.com/";
     private String alertMessage ;
     
-    @BeforeTest
+    @BeforeClass
+
     public void setUp() {
         driver = new ChromeDriver();
         driver.get(url);
@@ -27,32 +34,33 @@ public class dsalgoTest {
     }
 
     
-    @Test
+    @Test(priority=1)
     public void testgetStarted() {
     	DsalgoPage.clickGetStarted();
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
     
    // @Test(dependsOnMethods="testgetStarted")
-    public void testRegister() {
+    @Test(priority=2)
+	public void testRegister() {
     	DsalgoPage.clickregister();
-    	DsalgoPage.enterUserName("mathu");
-    	DsalgoPage.enterPassword("mathumathi");
-    	DsalgoPage.enterConfirmPassword("mathumathi");
+    	DsalgoPage.enterUserName("yaru");
+    	DsalgoPage.enterPassword("yathumathi");
+    	DsalgoPage.enterConfirmPassword("yathumathi");
     	DsalgoPage.clickregisterButton();
     	DsalgoPage.getAlertMessage();
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
     
-    
-    @Test(dependsOnMethods="testgetStarted")
+    //(dependsOnMethods="testgetStarted")
+    @Test(priority=3)
     public void testSignin() {
     	DsalgoPage.clickSignIn();
-    	DsalgoPage.enterUserName("mathu");
-    	DsalgoPage.enterPasswordSignIn("mathumathi");
+    	DsalgoPage.enterUserName("yaru");
+    	DsalgoPage.enterPasswordSignIn("yathumathi");
     	DsalgoPage.clickLoginSignInPage();
     	alertMessage = DsalgoPage.getAlertMessage();
-    	Assert.assertEquals(alertMessage, "You are logged in");
+    	AssertJUnit.assertEquals(alertMessage, "You are logged in");
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));	
     	
     }
@@ -72,14 +80,15 @@ public class dsalgoTest {
     }
    
     
-    @Test(dependsOnMethods="testDSALGO")
+    //@Test(dependsOnMethods="testDSALGO")
+    @Test
     public void testSignout() {
     	DsalgoPage.clickSignOut();
     	DsalgoPage.getAlertMessage();
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
-    @AfterTest
+   @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();

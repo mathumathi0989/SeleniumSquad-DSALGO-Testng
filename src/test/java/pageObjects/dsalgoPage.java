@@ -40,12 +40,13 @@ public class dsalgoPage {
 	 }
 	
 	 //Register
-	 private By register = By.xpath("//a[normalize-space()='Register']");
+	 private By register = By.linkText("Register");
 	 private By userName = By.xpath("//input[@id='id_username']");
 	 private By password = By.xpath("//input[@id='id_password1']");
 	 private By confirmPassword = By.xpath("//input[@id='id_password2']");
 	 private By registerButton = By.xpath("//input[@value='Register']");
 	 private By loginLink = By.xpath("//a[normalize-space()='Login']");
+	 
 	 public void clickregister() {
 		 driver.findElement(register).click();
 	 }
