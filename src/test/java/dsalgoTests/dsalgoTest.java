@@ -44,19 +44,20 @@ public class dsalgoTest {
     @Test(priority=2)
 	public void testRegister() {
     	DsalgoPage.clickregister();
-    	DsalgoPage.enterUserName("yaru");
+    	DsalgoPage.enterUserName("Anu");
     	DsalgoPage.enterPassword("yathumathi");
     	DsalgoPage.enterConfirmPassword("yathumathi");
     	DsalgoPage.clickregisterButton();
     	DsalgoPage.getAlertMessage();
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    	DsalgoPage.clickSignOut();
     }
     
     //(dependsOnMethods="testgetStarted")
     @Test(priority=3)
     public void testSignin() {
     	DsalgoPage.clickSignIn();
-    	DsalgoPage.enterUserName("yaru");
+    	DsalgoPage.enterUserName("Anu");
     	DsalgoPage.enterPasswordSignIn("yathumathi");
     	DsalgoPage.clickLoginSignInPage();
     	alertMessage = DsalgoPage.getAlertMessage();
@@ -69,7 +70,7 @@ public class dsalgoTest {
     
     
     
-    @Test(dependsOnMethods="testSignin")
+    @Test(priority=4,dependsOnMethods="testSignin",groups="Regression")
     public void testDSALGO() {
     	
     	//DSList - TopicsCovered 
@@ -81,7 +82,7 @@ public class dsalgoTest {
    
     
     //@Test(dependsOnMethods="testDSALGO")
-    @Test
+    @Test(priority=5)
     public void testSignout() {
     	DsalgoPage.clickSignOut();
     	DsalgoPage.getAlertMessage();

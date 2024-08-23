@@ -71,6 +71,8 @@ public class dsalgoPage {
 	 private By passwordLogin = By.xpath("//input[@id='id_password']");
 	 private By loginButton = By.xpath("//input[@value='Login']");
 	 private By registerLink = By.xpath("//a[normalize-space()='Register!']");
+	 
+	 
 	 public void clickSignIn() {
 		 driver.findElement(signIn).click();
 	 }
@@ -121,7 +123,7 @@ public class dsalgoPage {
 	            link1.click();
 	            System.out.println("Title of the Topics Covered: " + driver.getTitle());
 	            clickTryHere();
-	            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	            //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	            editTryHere("");
 	            editTryHere("print\"hello\"");
 	            editTryHere("invalid code");
