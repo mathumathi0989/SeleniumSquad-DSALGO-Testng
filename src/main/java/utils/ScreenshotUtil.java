@@ -12,10 +12,9 @@ public class ScreenshotUtil {
 
 	
 	 public static void captureScreenshot(WebDriver driver, String screenshotName) {
-	        TakesScreenshot ts = (TakesScreenshot) driver;
-	        File source = ts.getScreenshotAs(OutputType.FILE);
+	        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	        try {
-	            FileUtils.copyFile(source, new File("./screenshots/" + screenshotName + ".png"));
+	            FileUtils.copyFile(srcFile, new File("screenshots/" + screenshotName + ".png"));
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
