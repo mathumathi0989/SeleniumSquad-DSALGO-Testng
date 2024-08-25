@@ -1,0 +1,10 @@
+2024-08-25 17:25:23 INFO  dsalgoTest:45 - opened url and get started
+2024-08-25 17:25:25 INFO  dsalgoTest:57 - user registered
+2024-08-25 17:25:27 INFO  dsalgoTest:45 - opened url and get started
+2024-08-25 17:25:31 INFO  dsalgoTest:57 - user registered
+2024-08-25 17:25:57 INFO  dsalgoTest:73 - user signed in
+2024-08-25 17:26:05 INFO  dsalgoTest:73 - user signed in
+2024-08-25 17:38:03 INFO  dsalgoTest:85 - user completed topics covered validation
+2024-08-25 17:38:05 INFO  dsalgoTest:95 - user logged out
+2024-08-25 17:38:43 INFO  dsalgoTest:85 - user completed topics covered validation
+2024-08-25 17:38:46 INFO  dsalgoTest:95 - user logged out
