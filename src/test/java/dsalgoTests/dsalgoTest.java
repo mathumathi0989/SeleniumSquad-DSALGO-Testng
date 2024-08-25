@@ -49,9 +49,9 @@ public class dsalgoTest extends BaseClass  {
     @Test(priority=2,dependsOnMethods="testgetStarted")
 	public void testRegister() {
     	DsalgoPage.clickregister();
-    	DsalgoPage.enterUserName("mathuma1432");
-    	DsalgoPage.enterPassword("gurdev143");
-    	DsalgoPage.enterConfirmPassword("gurdev143");
+    	DsalgoPage.enterRegUserName();
+    	DsalgoPage.enterRegPassword();
+    	DsalgoPage.enterConfirmPassword();
     	DsalgoPage.clickregisterButton();
     	DsalgoPage.getAlertMessage();
     	logger.info("user registered");

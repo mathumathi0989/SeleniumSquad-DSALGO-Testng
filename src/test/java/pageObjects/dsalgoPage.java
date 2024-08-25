@@ -1,7 +1,10 @@
 package pageObjects;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -15,11 +18,18 @@ public class dsalgoPage {
 	
 	private WebDriver driver;
 	 private WebDriverWait wait;
-	 
+	 private Properties properties;
 	 
 	  public dsalgoPage(WebDriver driver) {
 	        this.driver = driver;
 	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	        this.properties = new Properties();
+	        try {
+	            FileInputStream fileInput = new FileInputStream("src/test/resources/config.properties");
+	            properties.load(fileInput);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 	        
 	    }
 	  
@@ -50,14 +60,20 @@ public class dsalgoPage {
 	 public void clickregister() {
 		 driver.findElement(register).click();
 	 }
+	 public void enterRegUserName() {
+		 driver.findElement(userName).sendKeys(properties.getProperty("username"));
+	 }
 	 public void enterUserName(String uName) {
 		 driver.findElement(userName).sendKeys(uName);
 	 }
-	 public void enterPassword(String pwd) {
-		 driver.findElement(password).sendKeys(pwd);
+	 public void enterPassword(String uPwd) {
+		 driver.findElement(password).sendKeys(uPwd);
 	 }
-	 public void enterConfirmPassword(String confirmPwd) {
-		 driver.findElement(confirmPassword).sendKeys(confirmPwd);
+	 public void enterRegPassword() {
+		 driver.findElement(password).sendKeys(properties.getProperty("password"));
+	 }
+	 public void enterConfirmPassword() {
+		 driver.findElement(confirmPassword).sendKeys(properties.getProperty("confirmPassword"));
 	 }
 	 public void clickregisterButton() {
 		 driver.findElement(registerButton).click();

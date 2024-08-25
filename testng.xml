@@ -7,13 +7,14 @@
   </listeners>
 
   <!-- Test on Firefox -->
+  <!--
   <test name="DsAlgoTest_Firefox">
     <parameter name="browser" value="firefox"/>
     <classes>
       <class name="dsalgoTests.dsalgoTest"/>
     </classes>
   </test>
-  
+  -->
   <!-- Test on Chrome -->
   <test name="DsAlgoTest_Chrome">
     <parameter name="browser" value="chrome"/>
