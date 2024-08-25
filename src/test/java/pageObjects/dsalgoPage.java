@@ -90,7 +90,10 @@ public class dsalgoPage {
 	 private By signOut = By.xpath("//a[normalize-space()='Sign out']");
 	 
 	 public void clickSignOut() {
-		 driver.findElement(signOut).click();
+	//	 driver.findElement(signOut).click();
+		 WebElement signOutButton = wait.until(ExpectedConditions.elementToBeClickable(signOut));
+		 signOutButton.click();
+
 	 }
 	 
 	 //Data Structures list
@@ -117,8 +120,11 @@ public class dsalgoPage {
 	 public void topicsCovered() {
 	        List<WebElement> links1 = driver.findElements(By.xpath("//a[@class='list-group-item']"));
 	        for (int i = 0; i < links1.size(); i++) {
-	        	WebElement link1 = links1.get(i);
-	            String url = link1.getAttribute("href");
+	        	 // Refetch the list of links to avoid stale element reference
+	            links1 = driver.findElements(By.xpath("//a[@class='list-group-item']"));
+	            WebElement link1 = links1.get(i);
+	            
+	        	String url = link1.getAttribute("href");
 	            System.out.println("Clicking on: " + url);
 	            link1.click();
 	            System.out.println("Title of the Topics Covered: " + driver.getTitle());
@@ -129,28 +135,7 @@ public class dsalgoPage {
 	            editTryHere("invalid code");
 	             driver.navigate().back();
 	             wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
-	             /*
-	             System.out.println(links1.size());
-	 				if (i == links1.size() - 1) {
-	 					((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0);");
-
-	 					
-	 					By practiceLinkLocator = By.xpath("//a[@class='list-group-item list-group-item-light text-info']");
-	 				try {
-						WebElement practiceLink = driver.findElement(practiceLinkLocator);
-						((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", practiceLink);
-						wait.until(ExpectedConditions.elementToBeClickable(practiceLink));
-						practiceLink.click();
-						wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
-						System.out.println("Title of the Practice Questions page: " + driver.getTitle());
-					} catch (Exception e) {
-						System.out.println("Practice questions link not found or not clickable.");
-						  driver.navigate().back();
-						  driver.navigate().back();
-						  }
-						  }
-						  
-						  */
+	      
 						  driver.navigate().back();
 		
 	           

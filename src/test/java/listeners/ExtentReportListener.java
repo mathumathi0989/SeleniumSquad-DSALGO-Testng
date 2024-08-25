@@ -1,5 +1,8 @@
 package listeners;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -43,9 +46,17 @@ public class ExtentReportListener implements ITestListener  {
 	        test.log(Status.FAIL, result.getThrowable());
 
 	        WebDriver driver = ((dsalgoTest) result.getInstance()).getDriver();
-	        String screenshotPath = "screenshots/" + result.getMethod().getMethodName() + ".png";
-	        ScreenshotUtil.captureScreenshot(driver, result.getMethod().getMethodName());
-	            test.addScreenCaptureFromPath(screenshotPath);
+	        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+	        
+	        // Create a unique screenshot file name with timestamp
+	        String screenshotName = result.getMethod().getMethodName() + "_" + timestamp + ".png";
+	        String screenshotPath = "screenshots/" + screenshotName;
+	        
+	        // Capture the screenshot and save it
+	        ScreenshotUtil.captureScreenshot(driver, screenshotPath);
+	        
+	        // Add screenshot to the test report
+	        test.addScreenCaptureFromPath(screenshotPath);
 	       
 	    }
 
