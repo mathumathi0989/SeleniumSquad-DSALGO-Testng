@@ -1,5 +1,6 @@
 package dsalgoTests;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.apache.logging.log4j.LogManager;
@@ -78,11 +79,14 @@ public class dsalgoTest extends BaseClass  {
     
     
     @Test(priority=4,dependsOnMethods="testSignin",groups="Regression")
-    public void testDSALGO() {
+    public void testDSALGO() throws IOException {
     	
     	//DSList - TopicsCovered 
     	DsalgoPage.dslist();	
     	logger.info("user completed topics covered validation");
+    	
+    	
+    	
     }
    
     

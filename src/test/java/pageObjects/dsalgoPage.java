@@ -3,6 +3,7 @@ package pageObjects;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -13,6 +14,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import utilities.ExcelUtils;
 
 public class dsalgoPage {
 	
@@ -113,7 +117,7 @@ public class dsalgoPage {
 	 }
 	 
 	 //Data Structures list
-	 public void dslist() {
+	 public void dslist() throws IOException {
 	//	  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		 List<WebElement> links = driver.findElements(By.xpath("//div[@class='row row-cols-1 row-cols-md-3 g-4']/div//a"));
 	        int numLinks = links.size();
@@ -133,27 +137,137 @@ public class dsalgoPage {
 	 }
 	 
 	 //Topics Covered
-	 public void topicsCovered() {
+	 
+		private By searcharray=By.xpath("//a[normalize-space()='Search the array']");
+	 	private By maxCons=By.xpath("//a[normalize-space()='Max Consecutive Ones']");
+	 	private By findNum=By.xpath("//a[normalize-space()='Find Numbers with Even Number of Digits']");
+	 	private By squaresOf=By.xpath("//a[contains(text(),'Squares of')]");
+	 public void topicsCovered() throws IOException {
 	        List<WebElement> links1 = driver.findElements(By.xpath("//a[@class='list-group-item']"));
 	        for (int i = 0; i < links1.size(); i++) {
 	        	 // Refetch the list of links to avoid stale element reference
 	            links1 = driver.findElements(By.xpath("//a[@class='list-group-item']"));
-	            WebElement link1 = links1.get(i);
-	            
+	            WebElement link1 = links1.get(i);   
 	        	String url = link1.getAttribute("href");
 	            System.out.println("Clicking on: " + url);
 	            link1.click();
 	            System.out.println("Title of the Topics Covered: " + driver.getTitle());
-	            clickTryHere();
+	    		//practice questions section
+	            driver.findElement(pracQues).click();
+	            try {
+	                WebElement link = driver.findElement(By.linkText("Search the array"));
+	                if( link.isDisplayed()) {
+	                for(int j=0;j<links1.size();j++)
+	            	{
+	            		 links1 = driver.findElements(By.xpath("//a[@class='list-group-item']"));
+	     	            WebElement link2 = links1.get(i);   
+	     	        	String url1 = link2.getAttribute("href");
+	     	            System.out.println("Clicking on: " + url1);
+	     	            String ele = link2.getText();
+	     	            link2.click();
+	    	            System.out.println("Title of the Array Practice Covered: " + driver.getTitle());
+	    	            
+	    	            String elevalue=driver.findElement(searcharray).getText();
+	    	            String elevalue1=driver.findElement(maxCons).getText();
+	    	            String elevalue2=driver.findElement(findNum).getText();
+	    	            String elevalue3=driver.findElement(squaresOf).getText();
+
+	    	     
+	    	            
+						if (ele.equalsIgnoreCase(elevalue)) {
+						    
+							List<String> pythonCodes = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
+							clearandExecutePracticeQues(pythonCodes.get(1));
+							clickRun();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+							String codeOutput = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+							System.out.println("Run output: " + codeOutput);
+
+							List<String> pythonCodes2 = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 1);
+
+							clearandExecutePracticeQues(pythonCodes.get(1));
+							clickSubmit();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+							String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+							System.out.println("Submit output: " + codeOutput1);
+						}
+							
+							else if (ele.equalsIgnoreCase(elevalue1)) {
+							List<String> pythonCodes = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
+							clearandExecutePracticeQues(pythonCodes.get(2));
+							clickRun();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+						  	String codeOutput = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+						     System.out.println("Run output: " + codeOutput);
+
+							List<String> pythonCodes2 = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 1);
+							clearandExecutePracticeQues(pythonCodes2.get(2));
+							clickSubmit();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+						 	String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+						   System.out.println("Submit output: " + codeOutput1);
+						} 
+							else if (ele.equalsIgnoreCase(elevalue2)) {
+							List<String> pythonCodes = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
+							clearandExecutePracticeQues(pythonCodes.get(3));
+							clickRun();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+						  	String codeOutput = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+						     System.out.println("Run output: " + codeOutput);
+
+							List<String> pythonCodes2 = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 1);
+							clearandExecutePracticeQues(pythonCodes2.get(3));
+							clickSubmit();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+						 	String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+						   System.out.println("Submit output: " + codeOutput1);   
+						 } 
+						else if (ele.equalsIgnoreCase(elevalue3)) {
+							List<String> pythonCodes = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
+							clearandExecutePracticeQues(pythonCodes.get(4));
+							clickRun();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+						  	String codeOutput = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+						     System.out.println("Run output: " + codeOutput);
+
+						     
+						    
+							List<String> pythonCodes2 = ExcelUtils
+									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 1);
+							clearandExecutePracticeQues(pythonCodes2.get(4));
+							clickSubmit();
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
+						 	String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
+						   System.out.println("Submit output: " + codeOutput1);
+						}
+					}
+	                }
+	                else {
+	                	System.out.println("No Praction Question listed");
+	                	Assert.assertEquals(driver.getTitle(), "Practice Questions");
+	                }
+	                
+	            } catch (Exception e) {
+	            }
+	            
+			   driver.navigate().back();
 	            //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	            clickTryHere();
 	            editTryHere("");
 	            editTryHere("print\"hello\"");
 	            editTryHere("invalid code");
+	            
 	             driver.navigate().back();
 	             wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
 	      
 						  driver.navigate().back();
-		
 	           
 	        }
 	        }
@@ -191,11 +305,41 @@ public class dsalgoPage {
 		 driver.findElement(runButton).click();
 	 }
 	 
+	 public void clickSubmit() {
+		 driver.findElement(submit).click();
 
-	 //Practice Questions
-	 
-	 
+	 }
 	
 
-	
-}
+		//Practice Questions
+
+		private By pracQues = By.xpath("//a[@class='list-group-item list-group-item-light text-info']");
+
+		private By submit = By.xpath("//input[@type='submit']");
+
+		public void clearandExecutePracticeQues(String code) throws IOException {
+
+			WebElement codeMirrorElement = wait
+					.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='CodeMirror-scroll']")));
+
+			// JavaScript to clear the CodeMirror editor
+			String clearScript = "var editor = document.querySelector('.CodeMirror').CodeMirror;"
+					+ "editor.setValue('');"; // Sets the value to an empty string, effectively clearing it
+
+			// Execute the script to clear the editor
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript(clearScript);
+
+			// Python code to enter into the CodeMirror editor
+			System.out.println("Executing: " + code);
+
+			// JavaScript to set the code in the CodeMirror editor
+			String enterCodeScript = "var editor = document.querySelector('.CodeMirror').CodeMirror;"
+					+ "editor.setValue(arguments[0]);";
+
+			// Execute the script to enter the code
+			js.executeScript(enterCodeScript, code);
+
+		}
+
+	}
