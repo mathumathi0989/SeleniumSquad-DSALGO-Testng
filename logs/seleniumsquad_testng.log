@@ -18,3 +18,27 @@
 2024-08-25 22:30:03 INFO  dsalgoTest:58 - user registered
 2024-08-25 22:30:04 INFO  dsalgoTest:61 - signedout
 2024-08-25 22:30:05 INFO  dsalgoTest:74 - user signed in
+2024-08-25 22:41:22 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:41:26 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:42:00 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:42:05 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:42:05 INFO  dsalgoTest:61 - signedout
+2024-08-25 22:42:06 INFO  dsalgoTest:74 - user signed in
+2024-08-25 22:47:03 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:47:07 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:47:50 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:47:55 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:47:55 INFO  dsalgoTest:61 - signedout
+2024-08-25 22:47:56 INFO  dsalgoTest:74 - user signed in
+2024-08-25 22:53:07 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:53:11 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:53:12 INFO  dsalgoTest:61 - signedout
+2024-08-25 22:53:13 INFO  dsalgoTest:74 - user signed in
+2024-08-25 23:05:10 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 23:05:14 INFO  dsalgoTest:58 - user registered
+2024-08-25 23:05:15 INFO  dsalgoTest:61 - signedout
+2024-08-25 23:05:16 INFO  dsalgoTest:74 - user signed in
+2024-08-25 23:10:00 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 23:10:05 INFO  dsalgoTest:58 - user registered
+2024-08-25 23:10:05 INFO  dsalgoTest:61 - signedout
+2024-08-25 23:10:06 INFO  dsalgoTest:74 - user signed in

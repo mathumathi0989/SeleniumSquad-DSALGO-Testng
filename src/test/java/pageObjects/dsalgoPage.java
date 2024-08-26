@@ -167,17 +167,15 @@ public class dsalgoPage {
 	     	            link2.click();
 	    	            System.out.println("Title of the Array Practice Covered: " + driver.getTitle());
 	    	            
-	    	            String elevalue=driver.findElement(searcharray).getText();
-	    	            String elevalue1=driver.findElement(maxCons).getText();
-	    	            String elevalue2=driver.findElement(findNum).getText();
-	    	            String elevalue3=driver.findElement(squaresOf).getText();
-
-	    	     
 	    	            
-						if (ele.equalsIgnoreCase(elevalue)) {
+						if (ele.equalsIgnoreCase("Search the array")) {
 						    
 							List<String> pythonCodes = ExcelUtils
 									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
+							
+							System.out.println("Title of the Array Practice Covered: " + pythonCodes.get(0));
+							System.out.println("Title of the Array Practice Covered: " + pythonCodes.get(1));
+							
 							clearandExecutePracticeQues(pythonCodes.get(1));
 							clickRun();
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
@@ -192,9 +190,10 @@ public class dsalgoPage {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
 							String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
 							System.out.println("Submit output: " + codeOutput1);
+							driver.navigate().back();
 						}
 							
-							else if (ele.equalsIgnoreCase(elevalue1)) {
+							else if (ele.equalsIgnoreCase("Max Consecutive Ones")) {
 							List<String> pythonCodes = ExcelUtils
 									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
 							clearandExecutePracticeQues(pythonCodes.get(2));
@@ -210,8 +209,11 @@ public class dsalgoPage {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
 						 	String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
 						   System.out.println("Submit output: " + codeOutput1);
+						   
+							driver.navigate().back();
+
 						} 
-							else if (ele.equalsIgnoreCase(elevalue2)) {
+							else if (ele.equalsIgnoreCase("Find Numbers with Even Number of Digits")) {
 							List<String> pythonCodes = ExcelUtils
 									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
 							clearandExecutePracticeQues(pythonCodes.get(3));
@@ -226,9 +228,12 @@ public class dsalgoPage {
 							clickSubmit();
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
 						 	String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
-						   System.out.println("Submit output: " + codeOutput1);   
+						   System.out.println("Submit output: " + codeOutput1);  
+						   
+							driver.navigate().back();
+
 						 } 
-						else if (ele.equalsIgnoreCase(elevalue3)) {
+						else if (ele.equalsIgnoreCase("Squares of")) {
 							List<String> pythonCodes = ExcelUtils
 									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
 							clearandExecutePracticeQues(pythonCodes.get(4));
@@ -246,6 +251,9 @@ public class dsalgoPage {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
 						 	String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
 						   System.out.println("Submit output: " + codeOutput1);
+						   
+							driver.navigate().back();
+
 						}
 					}
 	                }
