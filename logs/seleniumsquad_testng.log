@@ -42,3 +42,9 @@
 2024-08-25 23:10:05 INFO  dsalgoTest:58 - user registered
 2024-08-25 23:10:05 INFO  dsalgoTest:61 - signedout
 2024-08-25 23:10:06 INFO  dsalgoTest:74 - user signed in
+2024-08-26 09:29:51 INFO  dsalgoTest:46 - opened url and get started
+2024-08-26 09:29:55 INFO  dsalgoTest:58 - user registered
+2024-08-26 09:30:31 INFO  dsalgoTest:46 - opened url and get started
+2024-08-26 09:30:35 INFO  dsalgoTest:58 - user registered
+2024-08-26 09:30:35 INFO  dsalgoTest:61 - signedout
+2024-08-26 09:30:37 INFO  dsalgoTest:74 - user signed in
