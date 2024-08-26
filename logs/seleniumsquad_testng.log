@@ -8,3 +8,13 @@
 2024-08-25 17:38:05 INFO  dsalgoTest:95 - user logged out
 2024-08-25 17:38:43 INFO  dsalgoTest:85 - user completed topics covered validation
 2024-08-25 17:38:46 INFO  dsalgoTest:95 - user logged out
+2024-08-25 22:06:06 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:06:09 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:09:34 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:09:38 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:09:38 INFO  dsalgoTest:61 - signedout
+2024-08-25 22:09:40 INFO  dsalgoTest:74 - user signed in
+2024-08-25 22:29:59 INFO  dsalgoTest:46 - opened url and get started
+2024-08-25 22:30:03 INFO  dsalgoTest:58 - user registered
+2024-08-25 22:30:04 INFO  dsalgoTest:61 - signedout
+2024-08-25 22:30:05 INFO  dsalgoTest:74 - user signed in
