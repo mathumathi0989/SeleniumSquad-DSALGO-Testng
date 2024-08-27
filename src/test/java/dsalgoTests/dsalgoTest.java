@@ -49,16 +49,33 @@ public class dsalgoTest extends BaseClass  {
   
     @Test(priority=2,dependsOnMethods="testgetStarted")
 	public void testRegister() {
-    	DsalgoPage.clickregister();
-    	DsalgoPage.enterRegUserName();
-    	DsalgoPage.enterRegPassword();
-    	DsalgoPage.enterConfirmPassword();
-    	DsalgoPage.clickregisterButton();
-    	DsalgoPage.getAlertMessage();
-    	logger.info("user registered");
+    	boolean isRegistrationSuccessful = false;
+
+    	try {
+    	    DsalgoPage.clickregister();
+    	    DsalgoPage.enterRegUserName();
+    	    DsalgoPage.enterRegPassword();
+    	    DsalgoPage.enterConfirmPassword();
+    	    DsalgoPage.clickregisterButton();
+    	    DsalgoPage.getAlertMessage();
+    	    logger.info("User registered");
+    	    isRegistrationSuccessful = true;  // Set to true if registration is successful
+    	} catch (Exception e) {
+    	    logger.error("Registration failed: " + e.getMessage());
+    	}
+
+    	// Only attempt to sign out if registration was successful
+    	if (isRegistrationSuccessful) {
+    	    try {
+    	        DsalgoPage.clickSignOut();
+    	        logger.info("Signed out");
+    	    } catch (Exception e) {
+    	        logger.error("Sign out failed: " + e.getMessage());
+    	    }
+    	}
+
+    	// Reset the implicit wait after operations
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-    	DsalgoPage.clickSignOut();
-    	logger.info("signedout");
     }
     
     

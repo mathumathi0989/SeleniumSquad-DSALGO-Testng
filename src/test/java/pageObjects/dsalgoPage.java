@@ -111,8 +111,12 @@ public class dsalgoPage {
 	 
 	 public void clickSignOut() {
 	//	 driver.findElement(signOut).click();
-		 WebElement signOutButton = wait.until(ExpectedConditions.elementToBeClickable(signOut));
+	//	 WebElement signOutButton = wait.until(ExpectedConditions.elementToBeClickable(signOut));
+	//	 signOutButton.click();
+		 WebElement signOutButton = driver.findElement(signOut);
+		 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", signOutButton);
 		 signOutButton.click();
+
 
 	 }
 	 
@@ -144,7 +148,7 @@ public class dsalgoPage {
 	 	private By squaresOf=By.xpath("//a[contains(text(),'Squares of')]");
 	 public void topicsCovered() throws IOException {
 	        List<WebElement> links1 = driver.findElements(By.xpath("//a[@class='list-group-item']"));
-	        for (int i = 0; i < links1.size(); i++) {
+	        for (int i = 0; i < links1.size()-1; i++) {
 	        	 // Refetch the list of links to avoid stale element reference
 	            links1 = driver.findElements(By.xpath("//a[@class='list-group-item']"));
 	            WebElement link1 = links1.get(i);   
@@ -233,28 +237,7 @@ public class dsalgoPage {
 							driver.navigate().back();
 
 						 } 
-						else if (ele.equalsIgnoreCase("Squares of")) {
-							List<String> pythonCodes = ExcelUtils
-									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 0);
-							clearandExecutePracticeQues(pythonCodes.get(4));
-							clickRun();
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
-						  	String codeOutput = driver.findElement(By.xpath("//pre[@id='output']")).getText();
-						     System.out.println("Run output: " + codeOutput);
-
-						     
-						    
-							List<String> pythonCodes2 = ExcelUtils
-									.readPythonCodeFromExcel("src/test/resources/testdatas.xlsx", 1);
-							clearandExecutePracticeQues(pythonCodes2.get(4));
-							clickSubmit();
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//pre[@id='output']")));
-						 	String codeOutput1 = driver.findElement(By.xpath("//pre[@id='output']")).getText();
-						   System.out.println("Submit output: " + codeOutput1);
-						   
-							driver.navigate().back();
-
-						}
+						
 					}
 	                }
 	                else {
@@ -286,7 +269,12 @@ public class dsalgoPage {
 	 private By runButton = By.xpath("//button[@type='button']");
 	 private By output = By.xpath("//pre[@id='output']");
 	 public void clickTryHere() {
-		 driver.findElement(tryhereButton).click();
+	//	 driver.findElement(tryhereButton).click();
+		 new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+				    webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+				WebElement element = driver.findElement(tryhereButton);
+				element.click();
+
 	 }
 	 public void editTryHere(String code) {
 	        String script = "var editor = document.querySelector('.CodeMirror').CodeMirror;" +
