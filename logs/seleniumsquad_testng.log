@@ -1,0 +1,21 @@
+2024-08-26 21:57:25 INFO  dsalgoTest:46 - opened url and get started
+2024-08-26 21:57:30 INFO  dsalgoTest:58 - user registered
+2024-08-26 21:57:30 INFO  dsalgoTest:61 - signedout
+2024-08-26 21:57:31 INFO  dsalgoTest:74 - user signed in
+2024-08-26 22:28:44 INFO  dsalgoTest:46 - opened url and get started
+2024-08-26 22:28:45 INFO  dsalgoTest:58 - user registered
+2024-08-26 22:28:46 INFO  dsalgoTest:61 - signedout
+2024-08-26 22:28:47 INFO  dsalgoTest:74 - user signed in
+2024-08-26 22:28:51 INFO  dsalgoTest:46 - opened url and get started
+2024-08-26 22:28:56 INFO  dsalgoTest:58 - user registered
+2024-08-26 22:29:43 INFO  dsalgoTest:46 - opened url and get started
+2024-08-26 22:29:45 INFO  dsalgoTest:58 - user registered
+2024-08-26 22:29:45 INFO  dsalgoTest:61 - signedout
+2024-08-26 22:29:46 INFO  dsalgoTest:74 - user signed in
+2024-08-26 22:29:50 INFO  dsalgoTest:46 - opened url and get started
+2024-08-26 22:29:55 INFO  dsalgoTest:58 - user registered
+2024-08-26 22:30:27 INFO  dsalgoTest:74 - user signed in
+2024-08-26 22:50:29 INFO  dsalgoTest:86 - user completed topics covered validation
+2024-08-26 22:50:29 INFO  dsalgoTest:98 - user logged out
+2024-08-26 22:56:52 INFO  dsalgoTest:86 - user completed topics covered validation
+2024-08-26 22:56:54 INFO  dsalgoTest:98 - user logged out
